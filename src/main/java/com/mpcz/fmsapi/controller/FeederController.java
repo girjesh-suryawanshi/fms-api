@@ -1,8 +1,8 @@
 package com.mpcz.fmsapi.controller;
 
-import com.mpcz.fmsapi.services.SubstationViewServices;
+import com.mpcz.fmsapi.services.FeederServices;
 import com.mpcz.fmsapi.utility.GlobalResources;
-import com.mpcz.fmsinterface.SubstationInterface;
+import com.mpcz.fmsinterface.FeederInterface;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,35 +14,31 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/substation")
-public class SubstationViewController {
+@RequestMapping(value = "/feeder")
+public class FeederController {
 
-    private Logger logger = GlobalResources.getLogger(SubstationViewController.class);
-
+    private Logger logger = GlobalResources.getLogger(FeederController.class);
     @Autowired
-    SubstationViewServices substationViewServices;
+    FeederServices feederServices;
     private long id;
 
     @RequestMapping(method = RequestMethod.GET,produces ="application/json")
-    public ResponseEntity<?> getAll(){
+    public ResponseEntity<?> getAll() {
         String methodName = "getAll() : ";
         logger.info(methodName +"called");
         ResponseEntity<?> responseEntity = null;
-        List<?extends SubstationInterface> substationInterfaces = null;
+        List<? extends FeederInterface> feederInterfaces = null;
 
-        substationInterfaces = substationViewServices.getAll();
+        feederInterfaces = feederServices.getAll();
 
-        if(substationInterfaces !=null){
-
-            if(substationInterfaces.size()>0){
-                responseEntity = new ResponseEntity<>(substationInterfaces, HttpStatus.OK);
+        if(feederInterfaces != null) {
+            if(feederInterfaces.size()>0){
+                responseEntity = new ResponseEntity<>(feederInterfaces, HttpStatus.OK);
             }else{
                 responseEntity = new ResponseEntity<>("No Content",HttpStatus.NO_CONTENT);
 
             }
-
         }
-
         return  responseEntity;
-}
+    }
 }

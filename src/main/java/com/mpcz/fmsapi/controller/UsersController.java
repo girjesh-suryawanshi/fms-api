@@ -22,6 +22,7 @@ public class UsersController {
 
   @Autowired
   UsersServices usersServices;
+
   @RequestMapping(method = RequestMethod.POST,produces ="application/json")
   public ResponseEntity<?>postUser(@RequestBody Users users){
     String methodName ="postUser() ";
