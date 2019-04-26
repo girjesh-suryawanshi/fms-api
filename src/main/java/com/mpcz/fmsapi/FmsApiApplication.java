@@ -11,6 +11,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EntityScan(basePackages = {"com.mpcz.fmsentity.bean","com.mpcz.fmsapi"})
 @EnableJpaRepositories(basePackages = {"com.mpcz.fmsdao.repository","com.mpcz.fmsapi"})
 @ComponentScan(basePackages = {"com.mpcz.fmsdao.dao","com.mpcz.fmsapi"})
+@EnableAsync
 public class FmsApiApplication {
 
 	public static void main(String[] args) {
