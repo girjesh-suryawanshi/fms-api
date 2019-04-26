@@ -1,6 +1,7 @@
 package com.mpcz.fmsapi.services;
 
 import com.mpcz.fmsapi.utility.GlobalResources;
+import com.mpcz.fmsdao.dao.SubstationViewDAO;
 import com.mpcz.fmsinterface.SubstationInterface;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,10 @@ public class SubstationViewServices {
     private static Logger logger = GlobalResources.getLogger(SubstationViewServices.class);
 
     @Autowired
-    SubstationViewServices  substationViewDAO;
+    SubstationViewDAO substationViewDAO;
 
     public List<? extends SubstationInterface> getAll() {
-        String methodName = "getAll()  :";
+        String methodName = "findAll()  :";
         logger.error(methodName + "Called");
 
         List<? extends SubstationInterface> substationInterfaces = null;
