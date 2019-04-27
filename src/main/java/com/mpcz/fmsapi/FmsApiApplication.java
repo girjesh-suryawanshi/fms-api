@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = {"com.mpcz.fmsentity.bean", "com.mpcz.fmsapi"})
 @EnableJpaRepositories(basePackages = {"com.mpcz.fmsdao.repository", "com.mpcz.fmsapi"})
 @ComponentScan(basePackages = {"com.mpcz.fmsdao.dao", "com.mpcz.fmsapi"})
+
 public class FmsApiApplication {
 
     public static void main(String[] args) {
