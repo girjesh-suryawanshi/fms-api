@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
 public class UsersServices {
 
@@ -17,20 +16,16 @@ public class UsersServices {
     @Autowired
     UsersDAO usersDAO;
 
-    public UserInterface getUser(String userName){
-        String methodName ="getUser() ";
+    public UserInterface getUser(String userName) {
+        String methodName = "getUser() ";
         logger.info(methodName + "called");
         UserInterface userInterface = null;
-        if(userName != null){
-            userInterface =  usersDAO.getUser(userName);
+        if (userName != null) {
+            userInterface = usersDAO.getUser(userName);
         }
         return userInterface;
 
     }
-
-
-
-
 
 
 }

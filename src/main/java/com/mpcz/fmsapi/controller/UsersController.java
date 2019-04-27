@@ -15,32 +15,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping(value ="/user")
+@RequestMapping(value = "/users")
 public class UsersController {
 
-  private static Logger logger = GlobalResources.getLogger(UsersController.class);
+    private static Logger logger = GlobalResources.getLogger(UsersController.class);
 
-  @Autowired
-  UsersServices usersServices;
+    @Autowired
+    UsersServices usersServices;
 
-  @RequestMapping(method = RequestMethod.POST,produces ="application/json")
-  public ResponseEntity<?>postUser(@RequestBody Users users){
-    String methodName ="postUser() ";
-    logger.info(methodName + "called");
-    ResponseEntity<?> response = null;
-    UserInterface userInterface = null;
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> postUser(@RequestBody Users users) {
+        String methodName = "postUser() ";
+        logger.info(methodName + "called");
+        ResponseEntity<?> response = null;
+        UserInterface userInterface = null;
 
-    if(users != null){
+        if (users != null) {
 
-      userInterface = usersServices.getUser(users.getUserName());
+            userInterface = usersServices.getUser(users.getUserName());
 
-      if(userInterface != null){
-        response = new ResponseEntity<>(userInterface, HttpStatus.OK);
-      }else{
-        response = new ResponseEntity<>("No Content",HttpStatus.NO_CONTENT);
-      }
+            if (userInterface != null) {
+                response = new ResponseEntity<>(userInterface, HttpStatus.OK);
+            } else {
+                response = new ResponseEntity<>("No Content", HttpStatus.NO_CONTENT);
+            }
+        }
+        return response;
     }
-    return  response;
-  }
 
 }
