@@ -61,4 +61,31 @@ public class SubstationServices {
 		  return substationInterfaceDB;
 	  }
 
+	  //
+
+	public List<? extends SubstationInterface> getAllSub() {
+		String methodName = "findAll()  :";
+		//logger.error(methodName + "Called");
+
+		List<? extends SubstationInterface> substationInterfaces = null;
+
+		substationInterfaces = substationDAO.getAll();
+
+		if (substationInterfaces != null) {
+			if (substationInterfaces.size() > 0) {
+				return substationInterfaces;
+			} else {
+				System.out.println("Error...!");
+			}
+		}
+		return substationInterfaces;
+
+	}
+
+	public void deleteById(Long Id) {
+		String methodName = "deleteById()";
+		//logger.info(methodName + "called");
+		substationDAO.deleteByID(Id);
+	}
+
 }
