@@ -1,14 +1,5 @@
 package com.mpcz.fmsapi.controller;
 
-import com.mpcz.fmsapi.services.UsersServices;
-import com.mpcz.fmsapi.utility.GlobalResources;
-import com.mpcz.fmsapi.utility.SubstationFeederDTO;
-import com.mpcz.fmsentity.bean.Substation;
-import com.mpcz.fmsentity.bean.SubstationFeeder;
-import com.mpcz.fmsentity.bean.Users;
-import com.mpcz.fmsinterface.SubstationInterface;
-import com.mpcz.fmsinterface.UserInterface;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +12,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.mpcz.fmsapi.dto.SubstationFeederDTO;
+import com.mpcz.fmsapi.services.UsersServices;
+import com.mpcz.fmsapi.utility.GlobalResources;
+import com.mpcz.fmsentity.bean.Substation;
+import com.mpcz.fmsentity.bean.SubstationFeeder;
+import com.mpcz.fmsentity.bean.Users;
+import com.mpcz.fmsinterface.UserInterface;
 
 
 @Controller
@@ -35,7 +34,7 @@ public class UsersController {
   @RequestMapping(value="test",method = RequestMethod.GET,produces ="application/json")
   public ResponseEntity<?>get()
   {
-  SubstationFeederDTO substationFeederDTO = new SubstationFeederDTO();
+  SubstationFeederDTO s = new SubstationFeederDTO();
 	SubstationFeeder sb= new SubstationFeeder();
 	sb.setSubstationFeederId(1);
 	sb.setSubstationFeederName("Indore");
@@ -47,15 +46,14 @@ public class UsersController {
 	List<SubstationFeeder> substationFeederInterface =new ArrayList<SubstationFeeder>();
 	substationFeederInterface.add(sb1);
 	substationFeederInterface.add(sb);
-	substationFeederDTO.setSubstationFeederInterface(substationFeederInterface);
-	Substation s = new Substation();
+	s.setSubstationFeederInterface(substationFeederInterface);
 	s.setSubstationName("A");
-	substationFeederDTO.setSubstationInterface(s);
-	ResponseEntity responseEntity = new ResponseEntity<>(substationFeederDTO,HttpStatus.OK);
+	
+	ResponseEntity responseEntity = new ResponseEntity<>(s,HttpStatus.OK);
 //System.out.println(responseEntity.toString());
 return responseEntity;
   }
-  @RequestMapping(method = RequestMethod.POST,produces ="application/json")
+  @RequestMapping(value ="/login",method = RequestMethod.POST,produces ="application/json")
   public ResponseEntity<?>postUser(@RequestBody Users users){
     String methodName ="posdfdftUser() ";
     logger.info(methodName + "called");

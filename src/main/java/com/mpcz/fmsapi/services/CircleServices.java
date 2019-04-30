@@ -2,9 +2,12 @@ package com.mpcz.fmsapi.services;
 
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mpcz.fmsapi.controller.LocationController;
+import com.mpcz.fmsapi.utility.GlobalResources;
 import com.mpcz.fmsdao.dao.CircleDAO;
 import com.mpcz.fmsinterface.CircleInterface;
 
@@ -13,9 +16,11 @@ public class CircleServices {
 	
 	@Autowired
 	CircleDAO circleDAO;
-	
+	private Logger logger = GlobalResources.getLogger(CircleServices.class);
+
 	  public List<? extends CircleInterface> getAll() {
-	        System.out.println("Inside Bank master Service");
+		  String methodName="getAll() :";
+	        logger.info(methodName+" Called");
 
 	        List<? extends CircleInterface> circleInterfaces = null;
 

@@ -1,26 +1,19 @@
-package com.mpcz.fmsapi.utility;
+package com.mpcz.fmsapi.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.mpcz.fmsentity.bean.Substation;
 import com.mpcz.fmsentity.bean.SubstationFeeder;
 
-public class SubstationFeederDTO {
+public class SubstationFeederDTO extends Substation implements Serializable{
 	
-	private Substation substationInterface;
 	
 	private List<SubstationFeeder> substationFeederInterface;
 
 	
 
-	public Substation getSubstationInterface() {
-		return substationInterface;
-	}
-
-	public void setSubstationInterface(Substation substationInterface) {
-		this.substationInterface = substationInterface;
-	}
-
+	
 	public List<SubstationFeeder> getSubstationFeederInterface() {
 		return substationFeederInterface;
 	}
