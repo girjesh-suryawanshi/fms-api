@@ -104,10 +104,11 @@ public class SubstationServices {
 	public SubstationInterface deleteSubstation(Substation substationInterface) {
 		SubstationInterface substationInterfaceDB = null;
 		SubstationInterface substationDB = getSubstation(substationInterface.getId());
-		substationDB.setStatus(StatusEnum.DISABLE.getValue());
+		if (substationDB != null) {
+			substationDB.setStatus(StatusEnum.DISABLE.getValue());
 
-		substationInterfaceDB = substationDAO.save((Substation) substationDB);
-
+			substationInterfaceDB = substationDAO.save((Substation) substationDB);
+		}
 		return substationInterfaceDB;
 	}
 

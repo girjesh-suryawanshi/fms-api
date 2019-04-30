@@ -89,7 +89,7 @@ public class SubstationController {
 			if (substationInterfaceDB != null) {
 				response = new ResponseEntity<>(substationInterfaceDB, HttpStatus.CREATED);
 			} else {
-				response = new ResponseEntity<>("Unable to insert", HttpStatus.EXPECTATION_FAILED);
+				response = new ResponseEntity<>("Unable to delete substation", HttpStatus.EXPECTATION_FAILED);
 
 			}
 		} else {
