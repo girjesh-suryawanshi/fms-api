@@ -20,63 +20,61 @@ import com.mpcz.fmsinterface.ZoneInterface;
 @Controller
 
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping(value ="/location")
+@RequestMapping(value = "/location")
 
 public class LocationController {
 	private Logger logger = GlobalResources.getLogger(LocationController.class);
 
 	@Autowired
 	ZoneServices zoneServices;
-	
+
 	@Autowired
 	CircleServices circleServices;
-	
+
 	@GetMapping(value = "/zone")
-    public ResponseEntity<?>getAll(){
-        String methodName="getAll() :";
-        logger.info(methodName+" Called");
-        ResponseEntity<?> responseEntity = null;
-        List<?extends ZoneInterface> zoneInterfaces= null;
+	public ResponseEntity<?> getAll() {
+		String methodName = "getAll() :";
+		logger.info(methodName + " Called");
+		ResponseEntity<?> responseEntity = null;
+		List<? extends ZoneInterface> zoneInterfaces = null;
 
-        zoneInterfaces = zoneServices.getAll();
+		zoneInterfaces = zoneServices.getAll();
 
-        if(zoneInterfaces !=null){
+		if (zoneInterfaces != null) {
 
-            if(zoneInterfaces.size()>0){
-                responseEntity = new ResponseEntity<>(zoneInterfaces, HttpStatus.OK);
-            }else{
-                responseEntity = new ResponseEntity<>("No Content",HttpStatus.NO_CONTENT);
+			if (zoneInterfaces.size() > 0) {
+				responseEntity = new ResponseEntity<>(zoneInterfaces, HttpStatus.OK);
+			} else {
+				responseEntity = new ResponseEntity<>("No Content", HttpStatus.NO_CONTENT);
 
-            }
+			}
 
-        }
+		}
 
-        return  responseEntity;
-    }
-	
+		return responseEntity;
+	}
+
 	@GetMapping(value = "/circle")
-    public ResponseEntity<?>getAllCircle(){
-        String methodName="getAllCircle() :";
-        logger.info(methodName+" Called");
-        ResponseEntity<?> responseEntity = null;
-        List<?extends CircleInterface> circleInterfaces= null;
+	public ResponseEntity<?> getAllCircle() {
+		String methodName = "getAllCircle() :";
+		logger.info(methodName + " Called");
+		ResponseEntity<?> responseEntity = null;
+		List<? extends CircleInterface> circleInterfaces = null;
 
-        circleInterfaces = circleServices.getAll();
+		circleInterfaces = circleServices.getAll();
 
-        if(circleInterfaces !=null){
+		if (circleInterfaces != null) {
 
-            if(circleInterfaces.size()>0){
-                responseEntity = new ResponseEntity<>(circleInterfaces, HttpStatus.OK);
-            }else{
-                responseEntity = new ResponseEntity<>("No Content",HttpStatus.NO_CONTENT);
+			if (circleInterfaces.size() > 0) {
+				responseEntity = new ResponseEntity<>(circleInterfaces, HttpStatus.OK);
+			} else {
+				responseEntity = new ResponseEntity<>("No Content", HttpStatus.NO_CONTENT);
 
-            }
+			}
 
-        }
+		}
 
-        return  responseEntity;
-    }
-	
-
+		return responseEntity;
+	}
 
 }
