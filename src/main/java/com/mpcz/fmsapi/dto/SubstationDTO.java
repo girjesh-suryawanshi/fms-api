@@ -4,9 +4,10 @@ import com.mpcz.fmsentity.bean.Substation;
 import com.mpcz.fmsentity.bean.Zone;
 
 public class SubstationDTO {
-	
+
 	private Zone zone;
-private Substation substation;
+	private Substation substation;
+
 	public Zone getZone() {
 		return zone;
 	}
@@ -22,6 +23,5 @@ private Substation substation;
 	public void setSubstation(Substation substation) {
 		this.substation = substation;
 	}
-	
 
 }

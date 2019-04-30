@@ -13,28 +13,28 @@ import com.mpcz.fmsinterface.CircleInterface;
 
 @Service
 public class CircleServices {
-	
+
 	@Autowired
 	CircleDAO circleDAO;
 	private Logger logger = GlobalResources.getLogger(CircleServices.class);
 
-	  public List<? extends CircleInterface> getAll() {
-		  String methodName="getAll() :";
-	        logger.info(methodName+" Called");
+	public List<? extends CircleInterface> getAll() {
+		String methodName = "getAll() :";
+		logger.info(methodName + " Called");
 
-	        List<? extends CircleInterface> circleInterfaces = null;
+		List<? extends CircleInterface> circleInterfaces = null;
 
-	        circleInterfaces = circleDAO.getAll();
+		circleInterfaces = circleDAO.getAll();
 
-	        if (circleInterfaces != null) {
-	            if (circleInterfaces.size() > 0) {
-	                return circleInterfaces;
-	            } else {
-	                System.out.println("Error");
-	            }
-	        }
-	        return circleInterfaces;
+		if (circleInterfaces != null) {
+			if (circleInterfaces.size() > 0) {
+				return circleInterfaces;
+			} else {
+				System.out.println("Error");
+			}
+		}
+		return circleInterfaces;
 
-	    }
+	}
 
 }

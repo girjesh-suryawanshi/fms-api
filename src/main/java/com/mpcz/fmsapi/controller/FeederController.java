@@ -24,14 +24,6 @@ import com.mpcz.fmsinterface.FeederInterface;
  * @author Vikas Singh Nalwaya
  *
  */
-/**
- * @author Vikas Singh Nalwaya
- *
- */
-/**
- * @author Vikas Singh Nalwaya
- *
- */
 @Controller
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "/feeder")
@@ -41,7 +33,7 @@ public class FeederController {
 	FeederService feederService;
 
 	private Logger logger = GlobalResources.getLogger(FeederController.class);
-   
+
 	@GetMapping(value = "/all")
 	public ResponseEntity<?> getAll() {
 		String methodName = "getAll() :";
@@ -120,7 +112,7 @@ public class FeederController {
 		FeederInterface feederInterfaceDB;
 		if (feederInterface != null) {
 			try {
-				
+
 				feederInterfaceDB = feederService.deleteFeeder(feederInterface);
 				if (feederInterfaceDB != null) {
 					response = new ResponseEntity<>(feederInterfaceDB, HttpStatus.CREATED);

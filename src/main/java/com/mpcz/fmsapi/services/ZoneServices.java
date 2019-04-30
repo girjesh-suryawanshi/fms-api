@@ -17,39 +17,32 @@ public class ZoneServices {
 	@Autowired
 	ZoneDAO zoneDAO;
 	private Logger logger = GlobalResources.getLogger(ZoneServices.class);
-	  public List<? extends ZoneInterface> getAll() {
-	        System.out.println("Inside Bank master Service");
-	        String methodName=	" Zone Service getAll() :"	;
-	        logger.info("Called :"+methodName);
-	        List<? extends ZoneInterface> zoneInterfaces = null;
 
-	        zoneInterfaces = zoneDAO.getAll();
+	public List<? extends ZoneInterface> getAll() {
+		System.out.println("Inside Bank master Service");
+		String methodName = " Zone Service getAll() :";
+		logger.info("Called :" + methodName);
+		List<? extends ZoneInterface> zoneInterfaces = null;
 
-	        if (zoneInterfaces != null) {
-	            if (zoneInterfaces.size() > 0) {
-	                return zoneInterfaces;
-	            } else {
-	                System.out.println("Error");
-	            }
-	        }
-	        return zoneInterfaces;
+		zoneInterfaces = zoneDAO.getAll();
 
-	    }
-public Zone getZone(long id)
-{
-	String methodName=	" Zone Service getZone() :"	;
-	logger.info("Called :"+methodName);
-	Optional<Zone> zone=null;
-	
-	zone=zoneDAO.getZone(id);
-	if(zone!=null)
-	{
-		return zone.get();
+		if (zoneInterfaces != null) {
+			if (zoneInterfaces.size() > 0) {
+				return zoneInterfaces;
+			} else {
+				System.out.println("Error");
+			}
+		}
+		return zoneInterfaces;
+
 	}
-	else
-	{
-		return null;
+
+	public Zone getZone(long id) {
+		String methodName = " Zone Service getZone() :";
+		logger.info("Called :" + methodName);
+		Zone zone = null;
+		zone = zoneDAO.getZone(id);
+		return zone;
 	}
-}
 
 }

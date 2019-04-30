@@ -3,7 +3,7 @@ package com.mpcz.fmsapi.dto;
 import com.mpcz.fmsentity.bean.Feeder;
 import com.mpcz.fmsentity.bean.Substation;
 
-public class FeederDTO extends Feeder{
+public class FeederDTO extends Feeder {
 
 	private Substation substation;
 
@@ -14,9 +14,5 @@ public class FeederDTO extends Feeder{
 	public void setSubstation(Substation substation) {
 		this.substation = substation;
 	}
-	
-	
 
-	
-	
 }
